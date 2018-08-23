@@ -1,0 +1,38 @@
+{
+  "input": {
+    "vegetables": [
+      {
+        "name": "artichokes",
+        "position": 3
+      },
+      {
+        "name": "brussels sprouts",
+        "position": 1
+      },
+      {
+        "name": "carrots",
+        "position": 2
+      }
+    ]
+  },
+  "rules": {
+    "result": {
+      "$each": "$.vegetables",
+      "$index": "$.position",
+      "name": "$.name"
+    }
+  },
+  "expected": {
+    "result": [
+      {
+        "name": "brussels sprouts"
+      },
+      {
+        "name": "carrots"
+      },
+      {
+        "name": "artichokes"
+      }
+    ]
+  }
+}

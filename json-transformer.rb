@@ -1,5 +1,4 @@
 require 'json'
-require 'yaml'
 
 class JSONTransformer
   def initialize(input, rules)

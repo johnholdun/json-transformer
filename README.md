@@ -1,7 +1,5 @@
 # JSON Transformer
 
-Use JSON to turn JSON into JSON
-
 This is a proof-of-concept for a means of transforming JSON that may become a full-fledged spec someday. It's like XSLT, but for JSON!
 
 A transformation requires two JSON documents: an _input_ document and a _rules_ document. The input document is the source of your data, and the rules document describes how to transform your data to return the desired output. Your input and your rules **must** both be valid JSON objects.

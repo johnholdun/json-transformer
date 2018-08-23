@@ -14,6 +14,11 @@
     }
   },
   "expected": {
-    "companies": [{"id":"123","name":"Sprockets Inc."}]
+    "companies": [
+      {
+        "id": "123",
+        "name": "Sprockets Inc."
+      }
+    ]
   }
 }

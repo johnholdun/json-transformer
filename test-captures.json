@@ -1,0 +1,105 @@
+{
+  "input": {
+    "silverware": {
+      "forks": [
+        {
+          "skuId": "7fdd8",
+          "quality": "good"
+        },
+        {
+          "skuId": "96b9f",
+          "quality": "mint"
+        },
+        {
+          "skuId": "13ab7",
+          "quality": "poor"
+        }
+      ],
+      "spoons": [
+        {
+          "skuId": "ca733",
+          "quality": "great"
+        },
+        {
+          "skuId": "0dee8",
+          "quality": "awful"
+        }
+      ],
+      "knives": [
+        {
+          "skuId": "94033",
+          "quality": "knifey"
+        },
+        {
+          "skuId": "d24e0",
+          "quality": "sharp"
+        },
+        {
+          "skuId": "a33d3",
+          "quality": "fine"
+        },
+        {
+          "skuId": "863bb",
+          "quality": "meh"
+        }
+      ]
+    }
+  },
+  "rules": {
+    "data": {
+      "$each": "$.silverware.:type",
+      "id": "$.skuId",
+      "type": ":type",
+      "quality": "$.quality"
+    }
+  },
+  "expected": {
+    "data": [
+      {
+        "id": "7fdd8",
+        "type": "forks",
+        "quality": "good"
+      },
+      {
+        "id": "96b9f",
+        "type": "forks",
+        "quality": "mint"
+      },
+      {
+        "id": "13ab7",
+        "type": "forks",
+        "quality": "poor"
+      },
+      {
+        "id": "ca733",
+        "type": "spoons",
+        "quality": "great"
+      },
+      {
+        "id": "0dee8",
+        "type": "spoons",
+        "quality": "awful"
+      },
+      {
+        "id": "94033",
+        "type": "knives",
+        "quality": "knifey"
+      },
+      {
+        "id": "d24e0",
+        "type": "knives",
+        "quality": "sharp"
+      },
+      {
+        "id": "a33d3",
+        "type": "knives",
+        "quality": "fine"
+      },
+      {
+        "id": "863bb",
+        "type": "knives",
+        "quality": "meh"
+      }
+    ]
+  }
+}

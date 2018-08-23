@@ -54,8 +54,9 @@ class JSONTransformer
         end
     else
       items
-        .sort_by { |i| i['$index'].to_i }
-        .map { |i| i.reject { |k, _| k.start_with?('$') } }
+        .each_with_index
+        .sort_by { |item, index| item['$index'] || index }
+        .map { |item, _| item.reject { |k, _| k.start_with?('$') } }
     end
   end
 

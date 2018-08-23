@@ -3,8 +3,17 @@ require './json-transformer'
 
 Dir.glob('./test-*.json').each do |filename|
   test = JSON.parse(File.read(filename))
-  print "Testing #{filename}..."
+
+  puts "Testing #{filename}..."
+
+  # TODO: Capture exceptions and mark as failure
   result = JSONTransformer.call(test['input'], test['rules'])
-  success = result == test['expected']
-  puts success ? 'Success!' : 'Failure!'
+
+  if result == test['expected']
+    puts 'Success!'
+  else
+    # TODO: Render diffs on failure? Maybe use `gron`?
+    puts 'Failure! Unexpected result:'
+    puts JSON.pretty_generate(result)
+  end
 end

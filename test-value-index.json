@@ -1,0 +1,32 @@
+{
+  "input": {
+    "colors": [
+      {
+        "color": "green",
+        "position": 3
+      },
+      {
+        "color": "indigo",
+        "position": 5
+      },
+      {
+        "color": "red",
+        "position": 0
+      }
+    ]
+  },
+  "rules": {
+    "result": {
+      "$each": "$.colors",
+      "$index": "$.position",
+      "$value": "$.color"
+    }
+  },
+  "expected": {
+    "result": [
+      "red",
+      "green",
+      "indigo"
+    ]
+  }
+}

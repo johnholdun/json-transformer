@@ -1,0 +1,32 @@
+{
+  "input": {
+    "staff": [
+      {
+        "name": "Daisy",
+        "role": "Director"
+      },
+      {
+        "name": "Minnie",
+        "role": "Principal"
+      },
+      {
+        "name": "Clarabelle",
+        "role": "Lead"
+      }
+    ]
+  },
+  "rules": {
+    "result": {
+      "$each": "$.staff",
+      "$key": "$.role",
+      "$value": "$.name"
+    }
+  },
+  "expected": {
+    "result": {
+      "Director": "Daisy",
+      "Principal": "Minnie",
+      "Lead": "Clarabelle"
+    }
+  }
+}

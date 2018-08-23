@@ -108,6 +108,35 @@ Interested in returning an object instead of an array? Specify a `$key` instead 
       }
     }
 
+Interested in returning something other than an object from your `$each` calculation? If you include a `$value` key, that's what will be returned instead—either as the value of your object if you specify a `$key`, or as an item in an array.
+
+    // input
+    {
+      "staff": [
+        { "name": "Daisy", "role": "Director" },
+        { "name": "Minnie", "role": "Principal" },
+        { "name": "Clarabelle", "role": "Lead" }
+      ]
+    }
+
+    // rules
+    {
+      "result": {
+        "$each": "$.staff",
+        "$key": "$.role",
+        "$value": "$.name"
+      }
+    }
+
+    // output
+    {
+      "result": {
+        "Director": "Daisy",
+        "Principal": "Minnie",
+        "Lead": "Clarabelle"
+      }
+    }
+
 Your `$each` key's path can also include wildcards! These will be expanded so that your resulting object contains all possible values from your input doc, and you can use your wildcard value in each item as well using a named capture.
 
     // input

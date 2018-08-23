@@ -49,13 +49,24 @@ class JSONTransformer
     if rule.key?('$key')
       items
         .each_with_object({}) do |item, obj|
-          obj[item['$key']] = item.reject { |k, _| k.start_with?('$') }
+          obj[item['$key']] =
+            if item.key?('$value')
+              item['$value']
+            else
+              item.reject { |k, _| k.start_with?('$') }
+            end
         end
     else
       items
         .each_with_index
         .sort_by { |item, index| item['$index'] || index }
-        .map { |item, _| item.reject { |k, _| k.start_with?('$') } }
+        .map do |item, _|
+          if item.key?('$value')
+            item['$value']
+          else
+            item.reject { |k, _| k.start_with?('$') }
+          end
+        end
     end
   end
 

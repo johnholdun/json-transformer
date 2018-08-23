@@ -123,8 +123,6 @@ class JSONTransformer
       end
 
     items.map { |value| { token => value } }
-
-    # return calculate_valid_paths(tokens[index + 1 .. -1], sub_doc)
   end
 
   # Recursively replace strings that match a capture with the value of that

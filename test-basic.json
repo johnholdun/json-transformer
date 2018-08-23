@@ -1,0 +1,19 @@
+{
+  "input": {
+    "companies": {
+      "123": {
+        "name": "Sprockets Inc."
+      }
+    }
+  },
+  "rules": {
+    "companies": {
+      "$each": "$.companies",
+      "id": "$.$key",
+      "name": "$.$value.name"
+    }
+  },
+  "expected": {
+    "companies": [{"id":"123","name":"Sprockets Inc."}]
+  }
+}
